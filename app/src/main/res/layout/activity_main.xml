@@ -39,7 +39,9 @@
         android:layout_height="wrap_content"
         android:hint="@string/type_something"
         android:importantForAccessibility="yes"
-        android:inputType="text" />
+        android:inputType="text"
+        android:focusable="true"
+        android:focusableInTouchMode="true" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
