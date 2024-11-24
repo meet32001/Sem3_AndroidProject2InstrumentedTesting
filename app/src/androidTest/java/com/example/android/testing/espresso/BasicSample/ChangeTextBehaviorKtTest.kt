@@ -95,5 +95,7 @@ class ChangeTextBehaviorKtTest {
         onView(withId(R.id.editTextUserInput))
             .perform(typeText(INPUT_ABCDEF), closeSoftKeyboard())
         onView(withId(R.id.activityChangeTextBtn)).perform(click())
+        onView(withId(R.id.show_text_view))
+            .check(matches(withText(INPUT_ABCDEF)))
     }
 }
