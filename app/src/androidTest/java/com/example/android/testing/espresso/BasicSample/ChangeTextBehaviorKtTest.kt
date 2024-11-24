@@ -63,4 +63,22 @@ class ChangeTextBehaviorKtTest {
         onView(withId(R.id.textToBeChanged))
             .check(matches(withText(INPUT_ABCDEF)))
     }
+    // Test 4: Empty input, press Change Text button, and validate TextView content
+    @Test
+    fun testChangeText_withEmptyInput() {
+        onView(withId(R.id.editTextUserInput)).perform(clearText(), closeSoftKeyboard())
+        onView(withId(R.id.changeTextBt)).perform(click())
+        onView(withId(R.id.textToBeChanged))
+            .check(matches(withText(EMPTY_STRING))) // Replace with the expected default if different
+    }
+
+    // Test 5: Enter "123", press Open Activity and Change Text button, and validate ShowTextActivity TextView
+    @Test
+    fun testOpenActivity_with123() {
+        onView(withId(R.id.editTextUserInput))
+            .perform(typeText(INPUT_123), closeSoftKeyboard())
+        onView(withId(R.id.activityChangeTextBtn)).perform(click())
+        onView(withId(R.id.show_text_view))
+            .check(matches(withText(INPUT_123)))
+    }
 }
