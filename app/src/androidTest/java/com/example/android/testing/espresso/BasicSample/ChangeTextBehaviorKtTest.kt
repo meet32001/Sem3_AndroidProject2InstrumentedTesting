@@ -89,4 +89,11 @@ class ChangeTextBehaviorKtTest {
         onView(withId(R.id.show_text_view))
             .check(matches(withText(EMPTY_STRING))) // Replace with expected default if needed
     }
+    // Test 7: Enter "abcdef", press Open Activity and Change Text button, and validate ShowTextActivity TextView
+    @Test
+    fun testOpenActivity_withAbcdef() {
+        onView(withId(R.id.editTextUserInput))
+            .perform(typeText(INPUT_ABCDEF), closeSoftKeyboard())
+        onView(withId(R.id.activityChangeTextBtn)).perform(click())
+    }
 }
